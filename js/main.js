@@ -10,6 +10,15 @@ console.log = function(message) {
 };
 console.error = console.debug = console.info =  console.log;
 
+document.addEventListener('deviceready', function () {
+    // cordova.plugins.email is now available
+    alert('hi');
+    cordova.plugins.email.open({
+	    to:      'jugglingjon@gmail.com',
+	    subject: 'Greetings',
+	    body:    'How are you? Nice greetings from Leipzig'
+	});
+}, false);
 
 $(document).ready(function(){
 	$('#input').change(function(){
