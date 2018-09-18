@@ -13,7 +13,7 @@
 
 
     <plugin name="cordova-plugin-statusbar" source="npm" version="2.2.0" />
-    <plugin name="cordova-plugin-email" source="npm" version="1.2.7" />
+    <plugin name="cordova-plugin-email-composer" source="npm" version="0.8.3" />
     <!-- <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" /> -->
 
     <preference name="webviewbounce" value="false" />
