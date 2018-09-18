@@ -1,4 +1,17 @@
-document.addEventListener('deviceready', function () {
+if (typeof console  != "undefined") 
+    if (typeof console.log != 'undefined')
+        console.olog = console.log;
+    else
+        console.olog = function() {};
+
+console.log = function(message) {
+    console.olog(message);
+    $('#console').append('<p>' + message + '</p>');
+};
+console.error = console.debug = console.info =  console.log;
+
+
+$(document).ready(function(){
 	$('#input').change(function(){
 
 		$('#output').val(Base64.encode($('#input').val()));
@@ -31,5 +44,4 @@ document.addEventListener('deviceready', function () {
 		});
 		return false;
 	});
-
-}, false);
+});
