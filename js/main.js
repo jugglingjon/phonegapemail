@@ -10,15 +10,15 @@ console.log = function(message) {
 };
 console.error = console.debug = console.info =  console.log;
 
-document.addEventListener('deviceready', function () {
-    // cordova.plugins.email is now available
-    alert('hi');
-    cordova.plugins.email.open({
-	    to:      'jugglingjon@gmail.com',
-	    subject: 'Greetings',
-	    body:    'How are you? Nice greetings from Leipzig'
-	});
-}, false);
+// document.addEventListener('deviceready', function () {
+//     // cordova.plugins.email is now available
+//     alert('hi');
+//     cordova.plugins.email.open({
+// 	    to:      'jugglingjon@gmail.com',
+// 	    subject: 'Greetings',
+// 	    body:    'How are you? Nice greetings from Leipzig'
+// 	});
+// }, false);
 
 $(document).ready(function(){
 	$('#input').change(function(){
@@ -43,13 +43,17 @@ $(document).ready(function(){
 				base64data = reader.result;                
 				//console.log(base64data);
 				console.log( base64data.substr(base64data.indexOf(',')+1) );
+				var b64string = 'base64:test.zip//'+ base64data.substr(base64data.indexOf(',')+1);
+
+				cordova.plugins.email.open({
+				    to:      'jugglingjon@gmail.com',
+				    subject: 'Completion',
+				    body:    'send this file for completion',
+				    attachments: [b64string]
+				});
 			}
 			//saveAs(blob, "test.zip");
-			cordova.plugins.email.open({
-			    to:      'jugglingjon@gmail.com',
-			    subject: 'Greetings',
-			    body:    'How are you? Nice greetings from Leipzig'
-			});
+			
 		});
 		return false;
 	});
