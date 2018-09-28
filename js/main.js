@@ -51,7 +51,7 @@ $(document).ready(function(){
 		//saveAs(blobx,'test.xml');
 
 		var zip = new JSZip();
-		zip.file('test.xml',blobx);
+		zip.file('e395c897-0cc5-4196-b54f-8e0d0f8cc18b.xml',blobx);
 
 		zip.generateAsync({type:"blob"}).then(function (blob) {
 			var reader = new FileReader();
@@ -60,7 +60,7 @@ $(document).ready(function(){
 				base64data = reader.result;                
 				//console.log(base64data);
 				console.log( base64data.substr(base64data.indexOf(',')+1) );
-				var b64string = 'base64:test.ldk//'+ base64data.substr(base64data.indexOf(',')+1);
+				var b64string = 'base64:e395c897-0cc5-4196-b54f-8e0d0f8cc18b.ldk//'+ base64data.substr(base64data.indexOf(',')+1);
 
 				cordova.plugins.email.open({
 				    to:      'jugglingjon@gmail.com',
